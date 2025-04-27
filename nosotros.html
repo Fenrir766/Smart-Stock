@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nosotros - Smart Stock</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+  <header class="encabezado">
+    <img src="assets/logo.png" alt="Logo Smart Stock" class="logo" />
+    <nav class="menu">
+      <a href="index.html">INICIO</a>
+      <a class="activo" href="nosotros.html">NOSOTROS</a>
+      <a href="servicios.html">SERVICIOS</a>
+      <a href="contacto.html">CONTACTO</a>
+    </nav>
+    <div class="idiomas">
+      <span>ES</span>
+      <span>IN</span>
+    </div>
+  </header>
+  <div class="accesibilidad">
+    <button id="acces-btn">♿</button>
+    <div class="acces-menu" id="acces-menu">
+      <button onclick="toggleContraste()">Contraste</button>
+      <button onclick="cambiarTamanoTexto('+')">Aumentar texto</button>
+      <button onclick="cambiarTamanoTexto('-')">Reducir texto</button>
+      <button onclick="resetAccesibilidad()">Restablecer</button>
+    </div>
+  </div>
+  
+  <main class="contenedor-nosotros">
+    <div class="columna-izquierda">
+      <h1>todo lo que necesitas para<br>tu centro de distribución en<br>un solo lugar</h1>
+      <img src="assets/almacen.png" alt="Imagen de almacén" class="imagen-almacen"/>
+      
+      </div>
+    </div>
+
+    <div class="columna-derecha">
+      <h2>¿Quiénes somos?</h2>
+      <p>
+        Somos una empresa comprometida con la optimización de los procesos logísticos y de almacenamiento.
+        Nuestro software nace como una solución integral para facilitar el control de inventarios, mejorar
+        la trazabilidad de mercancías y potenciar la eficiencia en toda la cadena de suministro.
+      </p>
+      <p>
+        Nuestro equipo está conformado por profesionales apasionados por la tecnología, la logística y la innovación.
+        Creemos en el poder de la digitalización para transformar la gestión logística y ofrecer herramientas
+        inteligentes que impulsen el crecimiento de nuestros clientes.
+      </p>
+      <a class="boton-mapa" href="mapa-navegacion.html">Mapa de navegación</a>
+    </div>
+  </main>
+
+  <footer class="pie">
+    <div class="iconos-redes">
+        <img src="assets/icon-twitter.svg" alt="Twitter">
+        <img src="assets/icon-instagram.svg" alt="Instagram">
+        <img src="assets/icon-facebook.svg" alt="Facebook">
+    </div>
+    <p>© 2025 Smart Stock. Todos los derechos reservados.</p>
+  </footer>
+  <script>
+    document.getElementById('acces-btn').addEventListener('click', () => {
+      const menu = document.getElementById('acces-menu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    });
+  
+    function toggleContraste() {
+      document.body.classList.toggle('alto-contraste');
+    }
+  
+    function cambiarTamanoTexto(direccion) {
+      const body = document.body;
+      const estilo = window.getComputedStyle(body, null).getPropertyValue('font-size');
+      const tamanoActual = parseFloat(estilo);
+      if (direccion === '+') {
+        body.style.fontSize = (tamanoActual + 2) + 'px';
+      } else if (direccion === '-') {
+        body.style.fontSize = (tamanoActual - 2) + 'px';
+      }
+    }
+  
+    function resetAccesibilidad() {
+      document.body.classList.remove('alto-contraste');
+      document.body.style.fontSize = '';
+    }
+  </script>
+  
+</body>
+</html>
+
+<style class="css">
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: white;
+  color: #000;
+}
+
+.encabezado {
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+}
+
+.logo {
+  height: 60px;
+}
+
+.menu a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu .activo {
+  border-bottom: 2px solid white;
+}
+
+.idiomas span {
+  color: white;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.contenedor-nosotros {
+  display: flex;
+  padding: 40px;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.columna-izquierda {
+  flex: 1;
+}
+
+.columna-izquierda h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.imagen-almacen {
+  width: 100%;
+  max-width: 580px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+
+.columna-derecha {
+  flex: 1;
+}
+
+.columna-derecha h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.columna-derecha p {
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+.boton-mapa {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #00e0d6;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.pie {
+  padding: 20px 40px;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+}
+
+.iconos-redes {
+  margin: 20px 0 10px;
+}
+
+.iconos-redes img {
+  width: 50px;
+  margin: 0 10px;
+}
+.accesibilidad {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+#acces-btn {
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: #00cfc8;
+  cursor: pointer;
+}
+
+.acces-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.acces-menu button {
+  display: block;
+  margin: 5px 0;
+  width: 100%;
+  background: #eee;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  text-align: left;
+}
+
+body.alto-contraste {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+body.alto-contraste a {
+  color: #0ff !important;
+}
+
+</style>

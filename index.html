@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Stock</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <img src="assets/logo.png" alt="Logo Smart Stock" class="logo">
+    <nav class="nav">
+      <a class="activo" href="index.html">INICIO</a>
+      <a href="nosotros.html">NOSOTROS</a>
+      <a href="servicios.html">SERVICIOS</a>
+      <a href="contacto.html">CONTACTO</a>
+    </nav>
+    <div class="lang">
+      <span>ES</span> | <span>IN</span>
+    </div>
+  </header>
+  <div class="accesibilidad">
+    <button id="acces-btn">♿</button>
+    <div class="acces-menu" id="acces-menu">
+      <button onclick="toggleContraste()">Contraste</button>
+      <button onclick="cambiarTamanoTexto('+')">Aumentar texto</button>
+      <button onclick="cambiarTamanoTexto('-')">Reducir texto</button>
+      <button onclick="resetAccesibilidad()">Restablecer</button>
+    </div>
+  </div>
+  
+  <div class="main-section">
+    <div class="left-column">
+      <h1>todo lo que necesitas para<br>tu centro de distribución en<br>un solo lugar</h1>
+      <img class="warehouse" src="assets/almacen.png" alt="Centro de Distribución">
+    </div>
+
+    <div class="right-column">
+      <p>¿Ya eres parte de nuestro equipo?</p>
+      <p>¡inicia sesión y trabajemos juntos!</p>
+
+      <div class="social-icons">
+        <img src="assets/icon-twitter.svg" alt="Twitter">
+        <img src="assets/icon-instagram.svg" alt="Instagram">
+        <img src="assets/icon-facebook.svg" alt="Facebook">
+      </div>
+
+      <a href="login.html" class="button">Inicio de sesión</a>
+      <a href="mapa-navegacion.html" class="button ">Mapa de navegación</a>
+    </div>
+  </div>
+  <footer class="footer">
+    <p>© 2025 Smart Stock. Todos los derechos reservados.</p>
+  </footer>
+  <script>
+    document.getElementById('acces-btn').addEventListener('click', () => {
+      const menu = document.getElementById('acces-menu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    });
+  
+    function toggleContraste() {
+      document.body.classList.toggle('alto-contraste');
+    }
+  
+    function cambiarTamanoTexto(direccion) {
+      const body = document.body;
+      const estilo = window.getComputedStyle(body, null).getPropertyValue('font-size');
+      const tamanoActual = parseFloat(estilo);
+      if (direccion === '+') {
+        body.style.fontSize = (tamanoActual + 2) + 'px';
+      } else if (direccion === '-') {
+        body.style.fontSize = (tamanoActual - 2) + 'px';
+      }
+    }
+  
+    function resetAccesibilidad() {
+      document.body.classList.remove('alto-contraste');
+      document.body.style.fontSize = '';
+    }
+  </script>
+  
+</body>
+</html>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: white;
+  color: black;
+}
+
+.header {
+  background-color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+}
+
+.logo {
+  width: 60px;
+}
+
+.nav {
+  display: flex;
+  gap: 30px;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.nav a.activo {
+  border-bottom: 2px solid #00d4ff;
+}
+
+.lang {
+  color: white;
+  font-size: 14px;
+}
+
+.main-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 40px;
+  flex-wrap: wrap;
+}
+
+.left-column {
+  flex: 1;
+  padding: 20px;
+}
+
+.left-column h1 {
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.warehouse {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.right-column {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.button {
+  background-color: #00d4ff;
+  color: black;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  margin: 10px 0;
+  display: inline-block;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #00bfe0;
+}
+
+.social-icons {
+  margin: 20px 0;
+}
+
+.social-icons img {
+  width: 32px;
+  margin: 0 10px;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  font-size: 14px;
+  border-top: 1px solid #ddd;
+}
+.accesibilidad {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+#acces-btn {
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: #00cfc8;
+  cursor: pointer;
+}
+
+.acces-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.acces-menu button {
+  display: block;
+  margin: 5px 0;
+  width: 100%;
+  background: #eee;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  text-align: left;
+}
+
+body.alto-contraste {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+body.alto-contraste a {
+  color: #0ff !important;
+}
+
+</style>
