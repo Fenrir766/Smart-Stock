@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Stock - Contacto</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+  <header>
+    <img src="assets/logo.png" alt="Logo Smart Stock" class="logo" />
+    <nav>
+      <a href="index.html">INICIO</a>
+      <a href="nosotros.html">NOSOTROS</a>
+      <a href="servicios.html">SERVICIOS</a>
+      <a href="contacto.html" class="activo">CONTACTO</a>
+    </nav>
+    <div class="idiomas">
+      <span class="activo">ES</span> | <span>IN</span>
+    </div>
+  </header>
+  <div class="accesibilidad">
+    <button id="acces-btn">♿</button>
+    <div class="acces-menu" id="acces-menu">
+      <button onclick="toggleContraste()">Contraste</button>
+      <button onclick="cambiarTamanoTexto('+')">Aumentar texto</button>
+      <button onclick="cambiarTamanoTexto('-')">Reducir texto</button>
+      <button onclick="resetAccesibilidad()">Restablecer</button>
+    </div>
+  </div>
+  
+  <main class="contacto">
+    <section class="info">
+      <h2>todo lo que necesitas para<br>tu centro de distribución en<br>un solo lugar</h2>
+      <p><strong>Estamos ubicados en la Cra. 9 # 71-83, Chapinero, Bogotá D.C.,<br>Bogotá, Bogotá, D.C.</strong></p>
+      <p><img src="assets/icons-id-icon.png" alt="Tel" class="icono" /> +57 312 350 5793</p>
+      <p><img src="assets/icons-id-icon.png" alt="Tel" class="icono" /> +57 319 487 2185</p>
+
+      <div class="social-text">
+        Síguenos en nuestras redes sociales para<br>estar enterado de todas nuestras novedades
+      </div>
+
+    </section>
+
+    <section class="mapa">
+      <img src="assets/mapa.png" alt="mapa de ubicación">
+    </section>
+
+    <div class="boton-mapa">
+      <a href="mapa-navegacion.html">Mapa de navegación</a>
+    </div>
+  </main>
+
+  <footer class="pie">
+    <div class="iconos-redes">
+        <img src="assets/icon-twitter.svg" alt="Twitter">
+        <img src="assets/icon-instagram.svg" alt="Instagram">
+        <img src="assets/icon-facebook.svg" alt="Facebook">
+    </div>
+    <p>© 2025 Smart Stock. Todos los derechos reservados.</p>
+  </footer>
+  <script>
+    document.getElementById('acces-btn').addEventListener('click', () => {
+      const menu = document.getElementById('acces-menu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    });
+  
+    function toggleContraste() {
+      document.body.classList.toggle('alto-contraste');
+    }
+  
+    function cambiarTamanoTexto(direccion) {
+      const body = document.body;
+      const estilo = window.getComputedStyle(body, null).getPropertyValue('font-size');
+      const tamanoActual = parseFloat(estilo);
+      if (direccion === '+') {
+        body.style.fontSize = (tamanoActual + 2) + 'px';
+      } else if (direccion === '-') {
+        body.style.fontSize = (tamanoActual - 2) + 'px';
+      }
+    }
+  
+    function resetAccesibilidad() {
+      document.body.classList.remove('alto-contraste');
+      document.body.style.fontSize = '';
+    }
+  </script>
+  
+</body>
+</html>
+<style class="css">
+ body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  color: #000;
+}
+
+header {
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 60px;
+}
+
+header img.logo {
+  height: 60px;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a.activo {
+  text-decoration: underline;
+}
+
+.idiomas {
+  color: #fff;
+}
+
+main.contacto {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 60px 80px 30px;
+  box-sizing: border-box;
+  min-height: calc(100vh - 160px);
+  position: relative;
+}
+
+.info {
+  flex: 1 1 40%;
+  min-width: 300px;
+}
+
+.info h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.info p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.info .icono {
+  width: 20px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.social-text {
+  margin-top: 25px;
+  font-size: 14px;
+}
+
+.iconos-redes {
+  display: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.iconos-redes img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.iconos-redes img:hover {
+  transform: scale(1.1);
+}
+
+.mapa {
+  flex: 1 1 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.mapa img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+}
+
+.boton-mapa {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.boton-mapa a {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #00cfc8;
+  color: #000;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.boton-mapa a:hover {
+  background-color: #00b3ae;
+}
+
+
+footer {
+  text-align: center;
+  font-size: 13px;
+  padding: 20px;
+  color: #000;
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+.accesibilidad {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+#acces-btn {
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: #00cfc8;
+  cursor: pointer;
+}
+
+.acces-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.acces-menu button {
+  display: block;
+  margin: 5px 0;
+  width: 100%;
+  background: #eee;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  text-align: left;
+}
+
+body.alto-contraste {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+body.alto-contraste a {
+  color: #0ff !important;
+}
+
+</style>
